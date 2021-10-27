@@ -1,10 +1,10 @@
 <template>
-  <div>asdasdasdasd</div>
+  <cmp-template title="Template">asdasdasd</cmp-template>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 
 @Component
-export default class CmpButton extends Vue {}
+export default class extends Vue {}
 </script>

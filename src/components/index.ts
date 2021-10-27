@@ -1,1 +1,2 @@
-export { default as CmpButton } from "./button/button.vue";
+export * from "./button";
+export * from "./template";
