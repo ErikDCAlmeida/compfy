@@ -1,6 +1,6 @@
 {
   "name": "compfy",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "ErikDCAlmeida",
     "email": "erikdcalmeida@gmail.com"
@@ -10,7 +10,7 @@
     "build": "vue-cli-service build --target lib --name compfy src/plugin.ts",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "pub--patch": "yarn version --patch && git add . && git commit -m'chore(version):patch' && git push && git push --tags  "
+    "deploy:patch": "yarn version --patch && git push && git push --tags"
   },
   "dependencies": {
     "core-js": "^3.6.5",
