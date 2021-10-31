@@ -10,7 +10,12 @@
     "build": "vue-cli-service build --target lib --name compfy src/plugin.ts",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "deploy:patch": "yarn version --patch && git push && git push --tags"
+    "deploy:patch": "yarn version --patch && git push && git push --tags",
+    "deploy:pre-patch": "yarn version --pre-patch && git push && git push --tags",
+    "deploy:release": "yarn version --release && git push && git push --tags",
+    "deploy:major": "yarn version --major && git push && git push --tags",
+    "deploy:minor": "yarn version --minor && git push && git push --tags",
+    "deploy": "yarn version  && git push && git push --tags"
   },
   "dependencies": {
     "core-js": "^3.6.5",
