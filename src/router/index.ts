@@ -1,21 +1,12 @@
+// Import generated routes
+import routes from "vue-auto-routing";
+
 import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
+import Router from "vue-router";
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
-const routes: Array<RouteConfig> = [
-  {
-    path: "/",
-    name: "Template",
-    component: () =>
-      import(/* webpackChunkName: "template" */ "../views/test/template.vue"),
-  },
-];
-
-const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
+export default new Router({
+  // Pass the generated routes into the routes option
   routes,
 });
-
-export default router;
