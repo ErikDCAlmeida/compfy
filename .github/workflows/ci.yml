@@ -1,0 +1,32 @@
+name: Compfy Publish
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  release:
+    name: 🚀 Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎 Checkout
+        uses: actions/checkout@v2
+
+      - name: ⚙ Configuring Node
+        uses: actions/setup-node@v2
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        with:
+          node-version: "12.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: 🛠 Installing Dependencies
+        run: yarn
+
+      - name: 🏗️ Build
+        run: yarn build
+
+      - name: 🚀 Publishing on NPM
+        run: yarn publish --access public
