@@ -1,0 +1,86 @@
+// Font family 'Open Sans'
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+// Font styles root
+:root {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  --font-base: 14;
+}
+
+// Tag H styles
+.h-titles {
+  --size: 50;
+
+  font-weight: 700;
+  font-size: calc(var(--size) / var(--font-base) * 1em);
+  line-height: calc(6.5 / var(--size) * 1em);
+}
+.h1,
+h1 {
+  --size: 50;
+  font-weight: 700;
+  font-size: calc(var(--size) / var(--font-base) * 1em);
+  line-height: calc(59 / var(--size) * 1em);
+}
+.h2,
+h2 {
+  --size: 39;
+  font-weight: 700;
+  font-size: calc(var(--size) / var(--font-base) * 1em);
+  line-height: calc(46 / var(--size) * 1em);
+}
+.h3,
+h3 {
+  --size: 28;
+  font-weight: 700;
+  font-size: calc(var(--size) / var(--font-base) * 1em);
+  line-height: calc(48 / var(--size) * 1em);
+}
+.h4,
+h4 {
+  --size: 18;
+  font-weight: 700;
+  font-size: calc(var(--size) / var(--font-base) * 1em);
+  line-height: calc(28 / var(--size) * 1em);
+}
+.h5,
+h5 {
+  --size: 16;
+  font-weight: 700;
+  font-size: calc(var(--size) / var(--font-base) * 1em);
+  line-height: calc(28 / var(--size) * 1em);
+}
+
+// Tag P styles
+.p1 {
+  --size: 14;
+  font-weight: 700;
+  font-size: calc(var(--size) / var(--font-base) * 1em);
+  line-height: calc(19 / var(--size) * 1em);
+}
+.p2,
+p {
+  --size: 14;
+  font-weight: 600;
+  font-size: calc(var(--size) / var(--font-base) * 1em);
+  line-height: calc(14 / var(--size) * 1em);
+}
+.p3 {
+  --size: 10;
+  letter-spacing: 0.35px;
+  font-weight: 600;
+  font-size: calc(var(--size) / var(--font-base) * 1em);
+  line-height: calc(13 / var(--size) * 1em);
+}
+
+//Level Bold Font
+.v-bold {
+  font-weight: 800 !important;
+}
+.m-bold {
+  font-weight: 700 !important;
+}
+.l-bold {
+  font-weight: 600 !important;
+}

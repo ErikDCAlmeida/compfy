@@ -1,2 +1,2 @@
 export * from "./button";
-export * from "./template";
+export * from "./app";

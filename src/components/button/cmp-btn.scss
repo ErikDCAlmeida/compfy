@@ -1,0 +1,133 @@
+.cmp-btn {
+  @import "../../sass/_util";
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 2em;
+  border: none;
+  border-radius: 2.5em;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  vertical-align: middle;
+  line-height: inherit;
+  outline: none;
+  background: none;
+  height: em(40);
+  &:not(&--flat):not(&--outline) {
+    &.default--var {
+      --current-color: var(--theme-placeholder);
+      --theme-background: var(--theme-foreground);
+    }
+    .cmp-icon.no-color {
+      color: var(--theme-background);
+    }
+    background: var(--current-color);
+    color: var(--theme-background);
+  }
+  &--flat,
+  &--outline {
+    color: var(--current-color);
+    background: none !important;
+    .cmp-icon.no-color {
+      color: var(--current-color);
+    }
+  }
+  &.cmp-size--x-small {
+    height: em(20, 10);
+    padding: 0 em(9, 10);
+    &:not(.cmp-btn--icon) {
+      min-width: em(36, 10);
+    }
+  }
+  &.cmp-size--small {
+    $fsize: 12;
+    height: em(30, $fsize);
+    padding: 0 em(12, $fsize);
+    &:not(.cmp-btn--icon) {
+      min-width: em(50, $fsize);
+    }
+  }
+  &.cmp-size--large {
+    $fsize: 14;
+    height: em(50, $fsize);
+    padding: 0 em(20, $fsize);
+    &:not(.cmp-btn--icon) {
+      min-width: em(78, $fsize);
+    }
+  }
+  &.cmp-size--x-large {
+    $fsize: 16;
+    height: em(60, $fsize);
+    padding: 0 em(24, $fsize);
+    &:not(.cmp-btn--icon) {
+      min-width: em(92, $fsize);
+    }
+  }
+  &--icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: em(40);
+    height: em(40);
+    border-radius: 50%;
+    padding: 0;
+    & > .cmp-icon {
+      font-size: em(21);
+    }
+    &.cmp-size--x-small {
+      width: em(20, 10);
+      height: em(20, 10);
+      & > .cmp-icon {
+        font-size: em(14);
+      }
+    }
+    &.cmp-size--small {
+      width: em(30, 12);
+      height: em(30, 12);
+      & > .cmp-icon {
+        font-size: em(16);
+      }
+    }
+    &.cmp-size--large {
+      width: em(50, 14);
+      height: em(50, 14);
+    }
+    &.cmp-size--x-large {
+      width: em(60, 16);
+      height: em(60, 16);
+    }
+  }
+  &:not(.outline):before {
+    content: "";
+    border-radius: inherit;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+    background-color: var(--current-color);
+  }
+  &:hover,
+  &:focus {
+    &:not(.outline):before {
+      opacity: 0.1;
+    }
+  }
+  &--squared:not(&--icon) {
+    border-radius: 0.25em;
+  }
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  &--outline {
+    color: var(--current-color);
+    border: 1px solid currentColor;
+  }
+}

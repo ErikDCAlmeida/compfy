@@ -1,2 +1,2 @@
-import "./cmp-button.scss";
-export { default as CmpButton } from "./cmp-button";
+import "./cmp-btn.scss";
+export { default as CmpBtn } from "./cmp-btn";
