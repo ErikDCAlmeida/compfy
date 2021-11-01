@@ -34,7 +34,7 @@ export default class CmpBtn extends Mixins(Colorable, Sizeable) {
       {
         staticClass: "cmp-btn",
         class: {
-          ...this.colorClass,
+          ...this.colorClass[0],
           ...this.sizeClass,
           "cmp-btn--disabled": this.disabled,
           "cmp-btn--loading": this.loading,
