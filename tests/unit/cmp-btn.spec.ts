@@ -22,7 +22,7 @@ const wrapper = shallowMount(CmpBtn, {
   },
 });
 
-describe("Button", () => {
+describe("Button unit tests", () => {
   // Has a slot default
   it("has a slot default", () => {
     expect(wrapper.vm.$slots.default);
@@ -46,16 +46,20 @@ describe("Button", () => {
   // ["1", "2"].map((v) => console.log(v));
 
   it.each([
-    { name: "disabled", value: true },
-    { name: "disabled", value: false },
-  ])(`has a prop $name and class disabled => $o`, async ({ name, value }) => {
+    ["disabled", true],
+    ["disabled", false],
+  ])("has a prop and class cmp-btn--%p => %p", async (name, value) => {
     await wrapper.setProps({ [name]: value });
+
+    console.log(wrapper.classes());
+
+    const className = `cmp-btn--${value}`;
 
     expect(wrapper.props().disabled).toBe(value);
     if (value) {
-      expect(wrapper.classes()).toContain("cmp-btn--disabled");
+      expect(wrapper.classes()).toContain(className);
     } else {
-      expect(wrapper.classes()).not.toContain("cmp-btn--disabled");
+      expect(wrapper.classes()).not.toContain(className);
     }
   });
 
