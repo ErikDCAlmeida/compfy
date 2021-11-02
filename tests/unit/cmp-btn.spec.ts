@@ -9,10 +9,10 @@ const wrapper = shallowMount(CmpBtn, {
     disabled: true,
     flat: true,
     outline: true,
-    xSmall: true,
+    xSmall: true || false,
     small: true,
     large: true,
-    xLarge: true,
+    xLarge: true || false,
   },
   slots: {
     default: ["Test do slot"],
@@ -29,21 +29,21 @@ describe("Button unit tests", () => {
   });
 
   // Has a prop color
-  it("has a prop color", () => {
-    expect(wrapper.props().color).toBe("foreground");
-  });
+  // it.each([
+  //   ["color", "danger"],
+  //   ["color", "primary"],
+  //   ["color", "label"],
+  //   ["color", ""],
+  // ])("has a prop %p => %p", async (name, value) => {
+  //   await wrapper.setProps({ [name]: value });
 
-  // Has a prop disabled
-  /* it("has a prop disabled", () => {
-    expect(wrapper.props().disabled).toBe(true);
-    if (wrapper.props().disabled) {
-      expect(wrapper.classes()).toContain("cmp-btn--disabled");
-    } else {
-      expect(wrapper.classes()).not.toContain("cmp-btn--disabled");
-    }
-  }); */
-
-  // ["1", "2"].map((v) => console.log(v));
+  //   expect(wrapper.props().color).toBe(value);
+  //   if (value) {
+  //     expect(wrapper.classes()).toContain(name);
+  //   } else {
+  //     expect(wrapper.classes()).not.toContain(name);
+  //   }
+  // });
 
   it.each([
     ["disabled", true],
@@ -51,9 +51,7 @@ describe("Button unit tests", () => {
   ])("has a prop and class cmp-btn--%p => %p", async (name, value) => {
     await wrapper.setProps({ [name]: value });
 
-    console.log(wrapper.classes());
-
-    const className = `cmp-btn--${value}`;
+    const className = `cmp-btn--${name}`;
 
     expect(wrapper.props().disabled).toBe(value);
     if (value) {
@@ -64,33 +62,105 @@ describe("Button unit tests", () => {
   });
 
   // Has a prop flat
-  it("has a prop flat", () => {
-    expect(wrapper.props().flat).toBe(true);
+  it.each([
+    ["flat", true],
+    ["flat", false],
+  ])("has a prop %p => %p", async (name, value) => {
+    await wrapper.setProps({ [name]: value });
+
+    const className = `cmp-btn--${name}`;
+
+    expect(wrapper.props().flat).toBe(value);
+    if (value) {
+      expect(wrapper.classes()).toContain(className);
+    } else {
+      expect(wrapper.classes()).not.toContain(className);
+    }
   });
 
   // Has a prop outline
-  it("has a prop outline", () => {
-    expect(wrapper.props().outline).toBe(true);
+  it.each([
+    ["outline", true],
+    ["outline", false],
+  ])("has a prop %p => %p", async (name, value) => {
+    await wrapper.setProps({ [name]: value });
+
+    const className = `cmp-btn--${name}`;
+
+    expect(wrapper.props().outline).toBe(value);
+    if (value) {
+      expect(wrapper.classes()).toContain(className);
+    } else {
+      expect(wrapper.classes()).not.toContain(className);
+    }
   });
 
   // Has a prop x-small
-  it("has a prop x-small", () => {
-    expect(wrapper.props().xSmall).toBe(true);
+  it.each([
+    ["x-small", true],
+    ["x-small", false],
+  ])("has a prop %p => %p", async (name, value) => {
+    await wrapper.setProps({ [name]: value });
+
+    const className = `cmp-size--${name}`;
+
+    expect(wrapper.props().xSmall).toBe(value);
+    if (value) {
+      expect(wrapper.classes()).toContain(className);
+    } else {
+      expect(wrapper.classes()).not.toContain(className);
+    }
   });
 
   // Has a prop small
-  it("has a prop small", () => {
-    expect(wrapper.props().small).toBe(true);
+  it.each([
+    ["small", true],
+    ["small", false],
+  ])("has a prop %p => %p", async (name, value) => {
+    await wrapper.setProps({ [name]: value });
+
+    const className = `cmp-size--${name}`;
+
+    expect(wrapper.props().small).toBe(value);
+    if (value) {
+      expect(wrapper.classes()).toContain(className);
+    } else {
+      expect(wrapper.classes()).not.toContain(className);
+    }
   });
 
   // Has a prop large
-  it("has a prop large", () => {
-    expect(wrapper.props().large).toBe(true);
+  it.each([
+    ["large", true],
+    ["large", false],
+  ])("has a prop %p => %p", async (name, value) => {
+    await wrapper.setProps({ [name]: value });
+
+    const className = `cmp-size--${name}`;
+
+    expect(wrapper.props().large).toBe(value);
+    if (value) {
+      expect(wrapper.classes()).toContain(className);
+    } else {
+      expect(wrapper.classes()).not.toContain(className);
+    }
   });
 
   // Has a prop x-large
-  it("has a prop x-large", () => {
-    expect(wrapper.props().xLarge).toBe(true);
+  it.each([
+    ["x-large", true],
+    ["x-large", false],
+  ])("has a prop %p => %p", async (name, value) => {
+    await wrapper.setProps({ [name]: value });
+
+    const className = `cmp-size--${name}`;
+
+    expect(wrapper.props().xLarge).toBe(value);
+    if (value) {
+      expect(wrapper.classes()).toContain(className);
+    } else {
+      expect(wrapper.classes()).not.toContain(className);
+    }
   });
 
   // Has a click listener
